@@ -82,7 +82,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
     let { width, height } = this.sys.game.canvas;
     let game = this.scene.get("GameScene");
     let scene = this;
-    let scale = this.scaleRatio;
+    let scale = height / (3.3 * 440);
     var color = "";
     var cardType = 0;
     var cardStage = 0;
@@ -96,12 +96,15 @@ export default class DeckCreatorScene extends Phaser.Scene {
       height / 50,
       0x0909a9
     );
+    var cardsCounter = this.add.text(width / 40, (2 * height) / 3, "0 / 30", { font: "48px Arial", fill: "#060606" });
     var shownHeroes = this.add.group();
     var shownCards = this.add.group();
     var displayHero;
     var displayDeck = this.add.group();
     var displayAmounts = this.add.group();
     var deckKeys = [];
+    cardsCounter.setScale(scale);
+    console.log("scale:", scale);
 
     //yellow
     shownCards.create(
@@ -348,11 +351,9 @@ export default class DeckCreatorScene extends Phaser.Scene {
 
     shownHeroes.children.iterate(child => {
       child.setInteractive();
-      child.setScale(this.scaleRatio);
+      child.setScale(scale);
       child.on("pointerdown", function(pointer) {
         this.setTint(0xa0a0c0);
-
-        deckKeys.push(this.texture.key);
         if (
           this.texture.key == "Jonathan Joestar" ||
           this.texture.key == "William A. Zeppeli"
@@ -510,6 +511,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
         console.log("canidad objeto: ", amount, " nombre ", this.texture.key);
         if (amount < 3 && deckKeys.length < 30) {
           deckKeys.push(this.texture.key);
+          cardsCounter.text = deckKeys.length + " / 30";
 
           if (amount > 0) {
             displayAmounts.children.iterate(chld => {
@@ -518,7 +520,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
               }
             });
           } else {
-              let displayCard = scene.add.image((Math.floor(displayDeck.children.size / 5) * width) + ((((displayDeck.children.size % 5) + 2) *     width) / (cardsPerScreen + 1)),
+              let displayCard = scene.add.image((Math.floor(displayDeck.children.size / 5) * width) - (width * deckStage) + ((((displayDeck.children.size % 5) + 2) *     width) / (cardsPerScreen + 1)),
               height - height / 6,
               child.texture.key
               );
@@ -565,7 +567,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
                 });
             displayDeck.add(displayCard);
             let textDisplay = scene.add.text(
-              width / 32 + (Math.floor(displayAmounts.children.size / 5) * width) +
+              width / 32 + (Math.floor(displayAmounts.children.size / 5) * width) - (width * deckStage) +
                 (((displayAmounts.children.size % 5) + 2) * width) / (cardsPerScreen + 1),
               height - height / 15,
               "x1",
@@ -587,7 +589,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
     //elementos dinámicos
     var readCard = this.add.image(width / 2, height / 3, "Dio"); //sirve para hacer zoom y leer cartas
     readCard.setVisible(false);
-    readCard.setScale(this.scaleRatio * 1.5);
+    readCard.setScale(scale* 1.5);
 
     var buttonCardsL = this.add.image(width / 20, height / 3, "button l");
     var buttonCardsR = this.add.image(19 * width / 20, height / 3, "button r");
@@ -599,10 +601,10 @@ export default class DeckCreatorScene extends Phaser.Scene {
     buttonDeckL.setInteractive();
     buttonDeckR.setInteractive();
 
-    buttonCardsL.setScale(this.scaleRatio * 1.5);
-    buttonCardsR.setScale(this.scaleRatio * 1.5);
-    buttonDeckL.setScale(this.scaleRatio * 1.5);
-    buttonDeckR.setScale(this.scaleRatio * 1.5);
+    buttonCardsL.setScale(scale * 1.5);
+    buttonCardsR.setScale(scale * 1.5);
+    buttonDeckL.setScale(scale * 1.5);
+    buttonDeckR.setScale(scale * 1.5);
 
     buttonCardsL.on("pointerup", function(pointer) {
         if(cardType > 0 && cardStage >0){
