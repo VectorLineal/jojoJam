@@ -1,7 +1,7 @@
 export default class Card{
-    constructor(name, color, cost){
+    constructor(name, color, mana){
         this.name = name;
         this.color = color;
-        this.cost = cost;
+        this.mana = mana;
     }
 }

@@ -1,0 +1,114 @@
+{
+	"cards": [
+		{
+			"type": "Minion",
+			"name": "Adams",
+			"color": "Red",
+			"mana": "1",
+			"health": "1",
+			"attack": "2",
+			"race": "Undead",
+			"effects": "/EC-D2////"
+		},
+		{
+			"type": "Minion",
+			"name": "Aztec Chieftain",
+			"color": "Black",
+			"mana": "5",
+			"health": "5",
+			"attack": "5",
+			"race": "Undead",
+			"effects": "S-*L///S-C1.1//"
+		},
+		{
+			"type": "Character",
+			"name": "Bruford",
+			"color": "Red",
+			"mana": "1",
+			"health": "30",
+			"effects": "S-A3^1/////"
+		},
+		{
+			"type": "Minion",
+			"name": "Chimera Zombie",
+			"color": "Red",
+			"mana": "6",
+			"health": "6",
+			"attack": "6",
+			"race": "Undead",
+			"effects": "/EM-D3 FC-H3////"
+		},
+		{
+			"type": "Minion",
+			"name": "Dario Brando",
+			"color": "Black",
+			"mana": "2",
+			"health": "2",
+			"attack": "1",
+			"race": "Human",
+			"effects": "/-M&~EH>FH////"
+		},
+		{
+			"type": "Spell",
+			"name": "Deep Pass Overdrive",
+			"color": "Yellow",
+			"mana": "4",
+			"effects": "FC-D5 FM-C4.4`*U"
+		},
+		{
+			"type": "Character",
+			"name": "Dio Brando",
+			"color": "Red",
+			"mana": "3",
+			"health": "30",
+			"effects": "EM-D2///-S//"
+		},
+		{
+			"type": "Minion",
+			"name": "Dire",
+			"color": "Yellow",
+			"mana": "8",
+			"health": "7",
+			"attack": "10",
+			"race": "Hamon user",
+			"effects": "/EM-B///-M'Straits'~FD>FH/"
+		},
+		{
+			"type": "Minion",
+			"name": "Doobie",
+			"color": "Red",
+			"mana": "4",
+			"health": "5",
+			"attack": "3",
+			"race": "Undead",
+			"effects": "//EM-*P^3///"
+		},
+		{
+			"type": "Minion",
+			"name": "Erina Pendleton",
+			"color": "Black",
+			"mana": "3",
+			"health": "3",
+			"attack": "3",
+			"race": "Human",
+			"effects": "/F?-H4////"
+		},
+		{
+			"type": "Minion",
+			"name": "Executed Zombie",
+			"color": "Red",
+			"mana": "3",
+			"health": "3",
+			"attack": "3",
+			"race": "Undead",
+			"effects": "/AM-D1////"
+		},
+		{
+			"type": "Spell",
+			"name": "Freeze",
+			"color": "Red",
+			"mana": "3",
+			"effects": "EM-*S^1- `-*W-"
+		}
+	]
+}

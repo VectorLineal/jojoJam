@@ -1,10 +1,10 @@
 import Card from "./Card.js";
 //import "../main_layer/phaser.js";
 export default class Character extends Card{
-    constructor(name, color, cost, maxHealth, attack, effect){
-        super(name, color, cost);
+    constructor(name, color, mana, maxHealth, attack){
+        super(name, color, mana);
         this.maxHealth = maxHealth;
-        this.curHealh = this.maxHealth;
+        this.curHealth = this.maxHealth;
         this.attack = attack;
         this.effects = [];
     }
