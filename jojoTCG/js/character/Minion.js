@@ -12,12 +12,12 @@ export default class Minion{
 
     }
     onAttack(){
-
+        
     }
     onDeath(){
 
     }
-    onTurnEnd(){
+    onEndTurn(){
         
     }
 }
