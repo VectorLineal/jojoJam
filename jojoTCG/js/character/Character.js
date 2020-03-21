@@ -1,11 +1,8 @@
-import Card from "./Card.js";
+import Minion from "./Minion.js";
 //import "../main_layer/phaser.js";
-class Character extends Card{
+class Character extends Minion{
     constructor(name, color, cost, maxHealth, effect){
-        super(name, color, cost);
-        this.maxHealth = maxHealth;
-        this.curHealh = this.maxHealth;
-        this.attack = 0;
+        super(name, color, cost, maxHealth, 0, '');
         this.shield = 0;
     }
 

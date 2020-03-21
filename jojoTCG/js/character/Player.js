@@ -1,4 +1,4 @@
-class Player{
+export default class Player{
     constructor(name, hero, deck, mana){
         this.name = name;
         this.hero = hero;
