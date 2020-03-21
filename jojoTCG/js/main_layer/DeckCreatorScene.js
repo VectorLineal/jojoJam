@@ -13,12 +13,54 @@ export default class DeckCreatorScene extends Phaser.Scene {
     }
 
     preload() {
+        //heroes
         this.load.image('Dio Brando', 'assets/Dio Brando.jpg');
         this.load.image('Jonathan Joestar', 'assets/Jonathan Joestar.jpg');
         this.load.image('Jack the Ripper', 'assets/Jack the Ripper.jpg');
         this.load.image('Tarkus', 'assets/Tarkus.jpg');
         this.load.image('Bruford', 'assets/Bruford.jpg');
         this.load.image('William A. Zeppeli', 'assets/William A. Zeppeli.jpg');
+
+        //minions
+        this.load.image('Dire', 'assets/Dire.jpg');
+        this.load.image('Robert E.O Speedwagon', 'assets/Robert E.O Speedwagon.jpg');
+        this.load.image('Straits', 'assets/Straits.jpg');
+        this.load.image('Strait\'s Disciple', 'assets/Strait\'s Disciple.jpg');
+        this.load.image('Adams', 'assets/Adams.jpg');
+        this.load.image('Chimera Zombie', 'assets/Chimera Zombie.jpg');
+        this.load.image('Doobie', 'assets/Doobie.jpg');
+        this.load.image('Executed Zombie', 'assets/Executed Zombie.jpg');
+        this.load.image('Wang Chan', 'assets/Wang Chan.jpg');
+        this.load.image('Zombie', 'assets/Zombie.jpg');
+        this.load.image('Zombie Knight', 'Zombie Knight.jpg');
+        this.load.image('Aztec Chieftain', 'assets/Aztec Chieftain.jpg');
+        this.load.image('Dario Brando', 'assets/Dario Brando.jpg');
+        this.load.image('Erina Pendleton', 'assets/Erina Pendleton.jpg');
+        this.load.image('George Joestar', 'assets/George Joestar.jpg');
+        this.load.image('Tonpetty', 'assets/Tonpetty.jpg');
+
+        //items
+        this.load.image('Luck & Pluck', 'assets/Luck & Pluck.jpg');
+        this.load.image('Wine', 'assets/Wine.jpg');
+        this.load.image('Montrous Knife', 'assets/Montrous Knife.jpg');
+        this.load.image('Stone Mask', 'assets/Stone Mask.jpg');
+        this.load.image('Tarkus\' Chains', 'assets/Tarkus\' Chains.jpg');
+
+        //spells
+        this.load.image('Deep Pass Overdrive', 'assets/Deep Pass Overdrive.jpg');
+        this.load.image('Hamon Cutter', 'assets/Hamon Cutter.jpg');
+        this.load.image('life magnetism overdrive', 'assets/life magnetism overdrive.jpg');
+        this.load.image('Overdrive Barrage', 'assets/Overdrive Barrage.jpg');
+        this.load.image('Scarlet Overdrive', 'assets/Scarlet Overdrive.jpg');
+        this.load.image('Sendo Wave Kick', 'assets/Sendo Wave Kick.jpg');
+        this.load.image('Sunlight Overdrive', 'assets/Sunlight Overdrive.jpg');
+        this.load.image('Tuquoise Blue Overdrive', 'assets/Tuquoise Blue Overdrive.jpg');
+        this.load.image('Zoom Punch', 'assets/Zoom Punch.jpg');
+        this.load.image('Hypnosis', 'assets/Hypnosis.jpg');
+        this.load.image('Fusion', 'assets/Fusion.jpg');
+        this.load.image('Regeneration', 'assets/Regeneration.jpg');
+        this.load.image('Space Ripper Stingy Eye', 'assets/Space Ripper Stingy Eye.jpg');
+        this.load.image('Freeze', 'assets/Freeze.jpg');
     }
     
     create() {
@@ -27,11 +69,13 @@ export default class DeckCreatorScene extends Phaser.Scene {
         let game = this.scene.get('GameScene');
         let scene = this;
         let scale = this.scaleRatio;
+        var color = '';
         
-        //elementos estáticos
+        //elementos que se renderizan
         this.add.rectangle(width / 2, 2 * height / 3, width, height / 50, 0x0909a9);
         var shownHeroes = this.add.group();
         var shownCards = this.add.group();
+        var displayHero;
         var displayDeck = this.add.group();
         var displayAmounts = this.add.group();
         var deckKeys = [];
@@ -59,6 +103,12 @@ export default class DeckCreatorScene extends Phaser.Scene {
                 //console.log(amount, this.texture.key);
                 if(amount<3){
                     deckKeys.push(this.texture.key);
+                    if(this.texture.key == 'Jonathan Joestar' || this.texture.key == 'William A. Zeppeli'){
+                        color = 'y';
+                    }else{
+                        color = 'r';
+                    }
+                    console.log(color);
                     if(amount > 0){
                         displayAmounts.children.iterate((chld) => {
                             if(chld.name == child.texture.key){
@@ -74,22 +124,24 @@ export default class DeckCreatorScene extends Phaser.Scene {
                 }
             });
         
-            child.on('pointerout', function (pointer) {
-                this.clearTint();
-                displayDeck.children.iterate((chld) => {
-                    chld.setInteractive();
-                    chld.setScale(scale);
-                  });
-            });
-        
             child.on('pointerup', function (pointer) {
                 this.clearTint();
                 displayDeck.children.iterate((chld) => {
                     chld.setInteractive();
                     chld.setScale(scale);
-                  });
+                    chld.on('pointerdown', function (pointer) {
+
+                    });
+                });
+                shownHeroes.setVisible(false);
             });
-          });
+        });
+
+        if(color == 'y'){
+
+        }else{
+
+        }
 
         //elementos dinámicos
         var readCard = this.add.image(width/2, height/3, 'Dio'); //sirve para hacer zoom y leer cartas
