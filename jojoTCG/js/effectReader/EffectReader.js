@@ -98,33 +98,33 @@ function modEffect(target, effect, duration, card, type) {
         case 'W': // Wipe/Purge/Clean Effects
             break;
 
-        case '*':
-            if (type == 0) {
-                switch (effect.charAt(1)) {
-                    case 'P': // Poison
-                        card.effects.push({ "Poison": [duration] });
-                        break;
-                    case 'S': // Stunned
-                        card.effects.push({ "Stunned": [duration] });
-                        break;
-                    case 'W': // Weakness
-                        card.effects.push({ "Weakness": [duration] });
-                        break;
-                    case 'D': // Deadly
-                        card.effects.push({ "Deadly": [duration] });
-                        break;
-                    case 'B': // Burnt
-                        card.effects.push({ "Burnt": [duration] });
-                        break;
-                    case 'L': // Lifesteal
-                        card.effects.push({ "Lifesteal": [duration] });
-                        break;
-                    case 'U': // Unstopable
-                        card.effects.push({ "Unstopable": [duration] });
-                        break;
-                }
-            }
-            break;
+        // case '*':
+        //     if (type == 0) {
+        //         switch (effect.charAt(1)) {
+        //             case 'P': // Poison
+        //                 card.effects.push({ "Poison": [duration] });
+        //                 break;
+        //             case 'S': // Stunned
+        //                 card.effects.push({ "Stunned": [duration] });
+        //                 break;
+        //             case 'W': // Weakness
+        //                 card.effects.push({ "Weakness": [duration] });
+        //                 break;
+        //             case 'D': // Deadly
+        //                 card.effects.push({ "Deadly": [duration] });
+        //                 break;
+        //             case 'B': // Burnt
+        //                 card.effects.push({ "Burnt": [duration] });
+        //                 break;
+        //             case 'L': // Lifesteal
+        //                 card.effects.push({ "Lifesteal": [duration] });
+        //                 break;
+        //             case 'U': // Unstopable
+        //                 card.effects.push({ "Unstopable": [duration] });
+        //                 break;
+        //         }
+        //     }
+        //     break;
 
     }
 }
