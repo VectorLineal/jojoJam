@@ -53,7 +53,7 @@
 			"name": "Deep Pass Overdrive",
 			"color": "Yellow",
 			"mana": "4",
-			"effects": "FC-D5 FM-C4.4`*U"
+			"effects": "FC-D5 FM-C4.4`*U/////"
 		},
 		{
 			"type": "Character",
@@ -108,7 +108,7 @@
 			"name": "Freeze",
 			"color": "Red",
 			"mana": "3",
-			"effects": "EM-*S^1- `-*W-"
+			"effects": "EM-*S^1- `-*W-/////"
 		}
 	]
 }
