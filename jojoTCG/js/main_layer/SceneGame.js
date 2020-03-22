@@ -49,13 +49,7 @@ export default class SceneGame extends Phaser.Scene {
         }
         console.log(deck);
         
-        cards[0].onSummon();
-        //console.log(cards[0].onSummon);
-        // cards.forEach(element => {
-        //     element.onSummon();
-        // });
-
-        // console.log(cards);
+        // cards[0].onSummon();
 
         this.player1 = new Player("fornica", new Hero(deckManager.hero, 'b', 30), deck, 1);
 

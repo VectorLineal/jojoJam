@@ -24,6 +24,10 @@ export default class Character extends Card{
         }
     }
 
+    addEffect(name, duration, ammount) {
+        this.effects.push({ [name]: [duration, ammount] });
+    }
+
     onAttack(){
 
     }
