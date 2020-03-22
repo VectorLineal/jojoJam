@@ -2,7 +2,7 @@ import "./phaser.js";
 
 export default class DeckCreatorScene extends Phaser.Scene {
   constructor() {
-    super({ key: "HUDScene", active: true });
+    super({ key: "DeckScene", active: true });
     //muy importante para hacer escalado de forma correcta
     this.scaleRatio = window.devicePixelRatio / 1.5;
 

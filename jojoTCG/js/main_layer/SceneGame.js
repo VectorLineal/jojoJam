@@ -17,6 +17,8 @@ export default class SceneGame extends Phaser.Scene {
     }
     
     create() {
+        //referencia a la escena de creador de deck
+        let deckManager = this.scene.get("DeckScene");
         var cards = createCardArray(this.cache.json.get('cardsjson').cards);
         console.log(cards);
 
