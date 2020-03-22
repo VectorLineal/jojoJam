@@ -8,6 +8,22 @@ export default class Character extends Card{
         this.attack = attack;
         this.effects = [];
     }
+
+    die(){
+
+    }
+
+    alterHealth(ammount){
+        //positivo para heal, negativo para damage
+
+        this.curHealth += ammount;
+        if(this.curHealth > this.maxHealth){
+            this.curHealth = thi.maxHealth;
+        }else if(this.curHealth <= 0){
+            this.die();
+        }
+    }
+
     onAttack(){
 
     }

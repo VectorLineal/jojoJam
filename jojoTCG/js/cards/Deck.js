@@ -3,8 +3,20 @@ export default class Deck{
         this.cards = cards;
     }
 
+    contains(value){
+        return this.cards.includes(value);
+    }
+
     randomInt(begin, end){
         return Math.floor(Math.random()*(end-begin+1)) + begin;
+    }
+
+    draw(){
+        return this.cards.pop();
+    }
+
+    isEmpty(){
+        return this.cards.length == 0;
     }
 
     randomListPermutations(){
