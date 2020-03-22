@@ -1,4 +1,5 @@
 import Deck from "./Deck.js";
+import SceneGame from "../main_layer/SceneGame.js"
 
 export default class Player{
     constructor(name, hero, cards, mana){
@@ -17,14 +18,16 @@ export default class Player{
     }
 
     draw() {
-        this.hand.push(this.deck.pop());
+        this.hand.push(this.deck.draw());
     }
-    summon() {
-        //***********implemet/
-        this.field.push(this.hand.pop());
-    }
+    // summon() {
+    //     //***********implemet/
+    //     // selection = selectCard();
+    //     this.field.push(this.hand.pop());
+    // }
     summon(name) {
-        //this.field.push(toCard(name));
+        this.field.push(SceneGame.toCard(name));
+        console.log(this.field);
     }
 
     onTurnBegin(){

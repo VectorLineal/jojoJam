@@ -13,3 +13,5 @@ var config = {
 };
 
 let game = new Phaser.Game(config);
+
+var allCards;
