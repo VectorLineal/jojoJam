@@ -5,7 +5,7 @@ import createCardArray from "../effectReader/EffectReader.js";
 export default class SceneGame extends Phaser.Scene {
 
     constructor () {
-        super({key: 'GameScene');
+        super({key: 'GameScene'});
         
     }
 
@@ -21,7 +21,7 @@ export default class SceneGame extends Phaser.Scene {
         console.log(cards);
 
         cards[0].onSummon();
-
+        //console.log(cards[0].onSummon);
         // cards.forEach(element => {
         //     element.onSummon();
         // });
