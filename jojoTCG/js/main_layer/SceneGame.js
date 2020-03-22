@@ -1,5 +1,5 @@
 import "./phaser.js";
-import createCardArray from "../effectReader/EffectReader.js";
+import createCardArray from "../reader/EffectReader.js";
 import Player from "../cards/Player.js";
 import Hero from "../cards/Hero.js";
 //import Character from "../character/Character.js";
@@ -28,24 +28,24 @@ export default class SceneGame extends Phaser.Scene {
         //var cards = createCardArray(cardsCode);
     }
     
+    toCard(name) {
+        var cards = createCardArray(this.cache.json.get('cardsjson').cards);
+        for (let i = 0; i < cards.length; i++) {
+            if (name == cards[i].name) {
+                return cards[i];
+            }                
+        }
+    }
     create() {
         //referencia a la escena de creador de deck
         let deckManager = this.scene.get("DeckScene");
         let { width, height } = this.sys.game.canvas;
-        let scale = height / (4.25 * 444);
-
-        var cards = createCardArray(this.cache.json.get('cardsjson').cards);
-        console.log(cards);
+        let scale = width / (8.25 * 311);
 
         var deck = [];
 
         for (let i = 0; i < deckManager.deck.length; i++) {
-            for (let j = 0; j < cards.length; j++) {
-                if (deckManager.deck[i] == cards[j].name) {
-                    deck.push(cards[j]);
-                    break;
-                }                
-            }
+            deck.push(this.toCard(deckManager.deck[i]));
         }
         console.log(deck);
         
