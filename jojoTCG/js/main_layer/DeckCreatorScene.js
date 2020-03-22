@@ -105,7 +105,6 @@ export default class DeckCreatorScene extends Phaser.Scene {
     var displayAmounts = this.add.group();
     var deckKeys = [];
     cardsCounter.setScale(scale);
-    console.log("scale:", scale);
 
     //yellow
     shownCards.create(
@@ -363,7 +362,6 @@ export default class DeckCreatorScene extends Phaser.Scene {
         } else {
           color = "r";
         }
-        console.log(color);
         displayHero = scene.add.image(
           width / (cardsPerScreen + 1),
           height - height / 6,
@@ -509,7 +507,6 @@ export default class DeckCreatorScene extends Phaser.Scene {
           }
         }
         this.setTint(0xa0a0c0);
-        console.log("canidad objeto: ", amount, " nombre ", this.texture.key);
         if (amount < 3 && deckKeys.length < 30) {
           deckKeys.push(this.texture.key);
           cardsCounter.text = deckKeys.length + " / 30";
@@ -532,7 +529,6 @@ export default class DeckCreatorScene extends Phaser.Scene {
                   displayAmounts.children.each(chld => {
                       if (chld.name == this.texture.key ) {
                           amount = Number(chld.text.substring(chld.text.length - 1));
-                          console.log("amount", amount);
                           if(chld.text == "x1"){
                               displayAmounts.remove(chld, true, true);
                               displayDeck.remove(this, true, true);
@@ -552,7 +548,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
                                     deckKeys.splice(i, 1);
                                     break;
                                 }
-                            } 
+                            }
                           }else{
                               chld.setText("x" + (amount - 1));
                               for( var i = 0; i < deckKeys.length; i++){ 
@@ -562,7 +558,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
                               }
                           } 
                           }
-                        
+                          cardsCounter.text = deckKeys.length + " / 30";
                       }
                     });
                 });
@@ -577,7 +573,6 @@ export default class DeckCreatorScene extends Phaser.Scene {
             textDisplay.setScale(scale);
             textDisplay.name = this.texture.key;
             displayAmounts.add(textDisplay);
-            console.log("size: ", displayDeck.children.size);
           }
         }
       });
