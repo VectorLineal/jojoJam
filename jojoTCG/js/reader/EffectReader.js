@@ -68,28 +68,27 @@ function modTrigger(utility, card, type) {
 }
 
 function modEffect(target, effect, duration, card, type) {
+
+    var thisTarget = target == 'S'? card : selectTarget(target);
+    
     // read effect
     var newFunction;
     switch (effect.charAt(0)) {
         case 'D': // Deal Damage
             var amount = parseInt(effect.replace('D', ''));
-            newFunction = function () {
-                //var thisTarget = target == 'S'? card: selectTarget(target); // *******Implement*******
-                var thisTarget = card;
+            newFunction = function (thisTarget) {   // ThisTarget = Card    
                 thisTarget.alterHealth(-amount);
             }
             break;
         case 'H': // Heal
             var amount = parseInt(effect.substring(1));
-            newFunction = function () {
-                var thisTarget = card; // *******Implement*******
-                thisTarget.alterHealth(-amount);
+            newFunction = function (thisTarget) { // ThisTarget = Card
+                thisTarget.alterHealth(amount);
             }
             break;
         case 'P': // Protection/Shield
             var amount = parseInt(effect.substring(1));
-            newFunction = function () {
-                var thisTarget = card; // *******Implement*******
+            newFunction = function (thisTarget) { // ThisTarget = Card
                 thisTarget.addEffect("Health", duration, amount);
             }
             break;
@@ -97,70 +96,71 @@ function modEffect(target, effect, duration, card, type) {
             effect = effect.substring(1);
             var attack = parseInt(effect.split('.')[0]);
             var health = parseInt(effect.split('.')[1]);
-            newFunction = function () {
-                var thisTarget = card; // *******Implement*******
+            newFunction = function (thisTarget) { // ThisTarget = Card
                 thisTarget.addEffect("Health", duration, health);
                 thisTarget.addEffect("Attack", duration, health);
             }
             break;
         case 'A': // Set Attack
             var amount = parseInt(effect.substring(1));
-            newFunction = function () {
-                var thisTarget = card; // *******Implement*******
+            newFunction = function (thisTarget) { // ThisTarget = Card
                 thisTarget.addEffect("Attack", duration, amount);
             }
             break;
         case 'B': // Battle
-            newFunction = function () {
-                //battle(card);
+            newFunction = function (thisTarget) { // ThisTarget = Card
+                card.battle(thisTarget);
             }
             break;
         case 'K': // Kill
-            newFunction = function () {
-                var thisTarget = card; // *******Implement*******
+            newFunction = function (thisTarget) { // ThisTarget = Card
                 thisTarget.curHealth = 0;
+                thisTarget.alterHealth(amount); // To Update
             }
             break;
         case 'W': // Wipe/Purge/Clean Effects
-            newFunction = function () {
-                var thisTarget = card; // *******Implement*******
+            newFunction = function (thisTarget) { // ThisTarget = Card
                 thisTarget.effects = []; // Wipe all Effects
                 // *******Implement******* Bad Effects
             }
             break;
         case 'S': // Summon
             var amount = parseInt(effect.substring(1));
-            
             target = target.substring(1);
-            target = target.substring(target.length-1,target.length);
+            target = target.substring(target.length - 1, target.length);
 
-            // targetplayer.summon(target);
+            newFunction = function (thisTarget) { // ThisTarget = Player
+                thisTarget.generate(target);
+            }
             break;
         case 'M':
             effect = effect.substring(1);
             switch (effect.charAt(0)) {
                 case 'S': // Steal
-                    newFunction = function () {
-                        
+                    newFunction = function (thisTarget) { // ThisTarget = Player
+                        thisTarget.steal();
                     }
                     break;
                 case 'C': // Take Control
-                    newFunction = function () {
-                        
+                    newFunction = function (thisTarget) { // ThisTarget = Player
+                        thisTarget.control();
                     }
                     break;
                 case 'T': // Draw
                     var amount = parseInt(effect.substring(1));
-                    // targetPlayer.draw();
+                    newFunction = function (thisTarget) { // ThisTarget = Player
+                        targetPlayer.draw();
+                    }
+
                     break;
                 case 'D': // Discard
-                    newFunction = function () {
-                        
+                    newFunction = function (thisTarget) { // ThisTarget = Player
+                        targetPlayer.discard();
                     }
                     break;
                 case 'R': // Return to Hand
-                    newFunction = function () {
-                        
+                    newFunction = function (thisTarget) { // ThisTarget = Player
+                        targetPlayer.return();
                     }
                     break;
             }
@@ -174,9 +174,6 @@ function modEffect(target, effect, duration, card, type) {
 
         case '*':
             newFunction = function () {
-                if (target == 'S') var thisTarget = card;
-                else var thisTarget = selectTarget(target);
-
                 var effectName = effect.substring(1);
                 thisTarget.addEffect([effectName], [duration], 0);
             }
@@ -239,5 +236,3 @@ function modEffect(target, effect, duration, card, type) {
             break;
     }
 }
-
-// {createCardArray, createCard, modTrigger, modEffect}
