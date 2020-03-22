@@ -32,7 +32,7 @@ export default class SceneGame extends Phaser.Scene {
         //referencia a la escena de creador de deck
         let deckManager = this.scene.get("DeckScene");
         let { width, height } = this.sys.game.canvas;
-        let scale = height / (3.3 * 440);
+        let scale = widht / (8.25 * 311);
 
         var cards = createCardArray(this.cache.json.get('cardsjson').cards);
         console.log(cards);
@@ -56,6 +56,8 @@ export default class SceneGame extends Phaser.Scene {
         // });
 
         // console.log(cards);
+
+        //this.add.rectangle( width / 2, (2 * height) / 3, width, height / 50, 0x0909a9 );
 
         this.player1 = new Player("fornica", new Hero(deckManager.hero, 'b', 30), deck, 1);
 
