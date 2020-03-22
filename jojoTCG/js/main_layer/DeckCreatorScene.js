@@ -82,9 +82,8 @@ export default class DeckCreatorScene extends Phaser.Scene {
     this.input.topOnly = true;
     let cardsPerScreen = 6;
     let { width, height } = this.sys.game.canvas;
-    let game = this.scene.get("GameScene");
-    let scene = this;
     let scale = height / (3.3 * 440);
+    let scene = this;
     var color = "";
     var cardType = 0;
     var cardStage = 0;
