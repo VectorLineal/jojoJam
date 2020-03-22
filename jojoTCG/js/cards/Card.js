@@ -8,9 +8,9 @@ export default class Card{
         this.sprite;
     }
     setSprite(scene, scale, positionX, positionY){
-        this.sprite = scene.add.image(positionX, positionY);
+        this.sprite = scene.add.image(positionX, positionY, this.name);
         this.sprite.setScale(scale);
-        this.sprite.setinteractive();
+        this.sprite.setInteractive();
     }
 
     relocate(positionX, positionY){
