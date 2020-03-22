@@ -69,63 +69,134 @@ function modTrigger(utility, card, type) {
 
 function modEffect(target, effect, duration, card, type) {
     // read effect
+    var newFunction;
     switch (effect.charAt(0)) {
         case 'D': // Deal Damage
-            // var amount = parseInt(effect.replace('D', ''));
-            // card.onSummon = function (test) {
-            //     //var thisTarget = selectTarget(target); // *******Implement*******
-            //     //thisTarget.curHealth -= amount;
-            // }
-
+            var amount = parseInt(effect.replace('D', ''));
+            newFunction = function () {
+                //var thisTarget = target == 'S'? card: selectTarget(target); // *******Implement*******
+                var thisTarget = card;
+                thisTarget.curHealth -= amount;
+            }
             break;
         case 'C': // Add Counter
-            var attack = parseInt(effect.replace('D', '').split('.')[0]);
-            var health = parseInt(effect.replace('D', '').split('.')[1]);
-            var newFunction = function () {
-                var thisTarget = selectTarget(target); // *******Implement*******
-                thisTarget.effects.push({ "Health": [health, duration] });
-                thisTarget.effects.push({ "Attack": [attack, duration] });
+            var attack = parseInt(effect.replace('C', '').split('.')[0]);
+            var health = parseInt(effect.replace('C', '').split('.')[1]);
+            newFunction = function () {
+                var thisTarget = card; // *******Implement*******
+                thisTarget.effects.push({ "Health": [duration, health] });
+                thisTarget.effects.push({ "Attack": [duration, attack] });
             }
             break;
         case 'A': // Set Attack
+            var amount = parseInt(effect.replace('A', ''));
+            newFunction = function () {
+                var thisTarget = card; // *******Implement*******
+                thisTarget.effects.push({ "Attack": [duration, amount] });
+            }
+            break;
         case 'H': // Heal
-        case 'P': // Protection
-        case 'L': // Set health/Life
-
+            var amount = parseInt(effect.replace('H', ''));
+            newFunction = function () {
+                var thisTarget = card; // *******Implement*******
+                thisTarget.curHealth += amount;
+                if (thisTarget.curHealth > thisTarget.maxHealth)
+                    thisTarget.curHealth = thisTarget.maxHealth;
+            }
+            break;
+        case 'P': // Protection/Shield
+            var amount = parseInt(effect.replace('P', ''));
+            newFunction = function () {
+                var thisTarget = card; // *******Implement*******
+                thisTarget.effects.push({ "Health": [duration, amount] });
+            }
+            break;
         case 'S': // Summon
         case 'B': // Battle
+            newFunction = function () {
+                //battle(card);
+            }
+            break;
         case 'K': // Kill
+            newFunction = function () {
+                var thisTarget = card; // *******Implement*******
+                thisTarget.curHealth = 0;
+            }
+            break;
         case 'W': // Wipe/Purge/Clean Effects
+            newFunction = function () {
+                var thisTarget = card; // *******Implement*******
+                thisTarget.effects = []; // Wipe all Effects
+                // *******Implement******* Bad Effects
+            }
             break;
 
-        // case '*':
-        //     if (type == 0) {
-        //         switch (effect.charAt(1)) {
-        //             case 'P': // Poison
-        //                 card.effects.push({ "Poison": [duration] });
-        //                 break;
-        //             case 'S': // Stunned
-        //                 card.effects.push({ "Stunned": [duration] });
-        //                 break;
-        //             case 'W': // Weakness
-        //                 card.effects.push({ "Weakness": [duration] });
-        //                 break;
-        //             case 'D': // Deadly
-        //                 card.effects.push({ "Deadly": [duration] });
-        //                 break;
-        //             case 'B': // Burnt
-        //                 card.effects.push({ "Burnt": [duration] });
-        //                 break;
-        //             case 'L': // Lifesteal
-        //                 card.effects.push({ "Lifesteal": [duration] });
-        //                 break;
-        //             case 'U': // Unstopable
-        //                 card.effects.push({ "Unstopable": [duration] });
-        //                 break;
-        //         }
-        //     }
-        //     break;
 
+        case '*':
+            newFunction = function () {
+                if (target == 'S') var thisTarget = card;
+                else var thisTarget = selectTarget(target);
+
+                var effectName = effect.substring(1);
+                thisTarget.effects.push({ [effectName]: [duration] });
+            }
+            break;
+
+    }
+
+    //console.log(card.name, type, newFunction);
+    var oldFunction;
+
+    switch (type) {
+        case 0:
+            if (target == 'S') { 
+                var onDefault = function () {
+                    newFunction.apply(newFunction);
+                }
+                onDefault();
+            } else {
+                oldFunction = card.onActivate;
+                card.onActivate = function () {
+                    oldFunction.apply(oldFunction);
+                    newFunction.apply(newFunction);
+                }
+            }
+            break;
+        case 1:
+            oldFunction = card.onSummon;
+            card.onSummon = function () {
+                oldFunction.apply(oldFunction);
+                newFunction.apply(newFunction);
+            }
+            break;
+        case 2:
+            oldFunction = card.onAttack;
+            card.onAttack = function () {
+                oldFunction.apply(oldFunction);
+                newFunction.apply(newFunction);
+            }
+            break;
+        case 3:
+            oldFunction = card.onDeath;
+            card.onDeath = function () {
+                oldFunction.apply(oldFunction);
+                newFunction.apply(newFunction);
+            }
+            break;
+        case 4:
+            oldFunction = card.onKill;
+            card.onKill = function () {
+                oldFunction.apply(oldFunction);
+                newFunction.apply(newFunction);
+            }
+            break;
+        case 5:
+            oldFunction = card.onEndTurn;
+            card.onEndTurn = function () {
+                oldFunction.apply(oldFunction);
+                newFunction.apply(newFunction);
+            }
+            break;
     }
 }
 

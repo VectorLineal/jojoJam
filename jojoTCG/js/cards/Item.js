@@ -5,7 +5,7 @@ export default class Item extends Card{
         super(name, color, cost);
     }
 
-    onSummon(){
+    onActivate(){
         
     }
 }

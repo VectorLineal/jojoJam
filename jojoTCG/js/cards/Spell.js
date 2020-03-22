@@ -5,7 +5,7 @@ export default class Spell extends Card{
         super(name, color, mana);
     }
 
-    onSummon(){
+    onActivate(){
         
     }
 }
