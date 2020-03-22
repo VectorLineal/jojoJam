@@ -25,6 +25,18 @@ export default class SceneGame extends Phaser.Scene {
         var cards = createCardArray(this.cache.json.get('cardsjson').cards);
         console.log(cards);
 
+        var deck = [];
+
+        for (let i = 0; i < deckManager.deck.length; i++) {
+            for (let j = 0; j < cards.length; j++) {
+                if (deckManager.deck[i] == cards[j].name) {
+                    deck.push(cards[j]);
+                    break;
+                }                
+            }
+        }
+        console.log(deck);
+        
         cards[0].onSummon();
         //console.log(cards[0].onSummon);
         // cards.forEach(element => {

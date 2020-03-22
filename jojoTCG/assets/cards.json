@@ -8,7 +8,7 @@
 			"health": "1",
 			"attack": "2",
 			"race": "Undead",
-			"effects": "/EC-D2////"
+			"effects": "/EH-D2////"
 		},
 		{
 			"type": "Minion",
@@ -36,7 +36,7 @@
 			"health": "6",
 			"attack": "6",
 			"race": "Undead",
-			"effects": "/EM-D3 FC-H3////"
+			"effects": "/EM-D3 FH-H3////"
 		},
 		{
 			"type": "Minion",
@@ -46,14 +46,14 @@
 			"health": "2",
 			"attack": "1",
 			"race": "Human",
-			"effects": "/-M&~EH>FH////"
+			"effects": "/&-M~EH>FH////"
 		},
 		{
 			"type": "Spell",
 			"name": "Deep Pass Overdrive",
 			"color": "Yellow",
 			"mana": "4",
-			"effects": "/FC-D5 FM-C4.4`*U////"
+			"effects": "FH-D5 FM-C4.4`*U/////"
 		},
 		{
 			"type": "Character",
@@ -61,7 +61,7 @@
 			"color": "Red",
 			"mana": "3",
 			"health": "30",
-			"effects": "EM-D2///-S//"
+			"effects": "EM-D2///'Zombie'-S//"
 		},
 		{
 			"type": "Minion",
@@ -71,7 +71,7 @@
 			"health": "7",
 			"attack": "10",
 			"race": "Hamon user",
-			"effects": "/EM-B///-M'Straits'~FD>FH/"
+			"effects": "/EM-B///'Straits'-M~FD>FH/"
 		},
 		{
 			"type": "Minion",
@@ -108,7 +108,248 @@
 			"name": "Freeze",
 			"color": "Red",
 			"mana": "3",
-			"effects": "/EM-*S^1- `-*W-////"
-		}
+			"effects": "EM-*S^1*W/////"
+		},
+		{
+			"type": "Spell",
+			"name": "Fusion",
+			"color": "Red",
+			"mana": "2",
+			"effects": "FM-K/FM-!1`C2.2////"
+		},
+		{
+			"type": "Minion",
+			"name": "George Joestar",
+			"color": "Black",
+			"mana": "1",
+			"health": "1",
+			"attack": "1",
+			"race": "Human",
+			"effects": "/F?2-M~FD>FH E?2->M~ED>EH////"
+		},
+		{
+			"type": "Spell",
+			"name": "Hamon Cutter",
+			"color": "Yellow",
+			"mana": "6",
+			"effects": "E&-D10/////"
+		},
+		{
+			"type": "Spell",
+			"name": "Hypnosis",
+			"color": "Red",
+			"mana": "4",
+			"effects": "EM-M~EF>FF/////"
+		},
+		{
+			"type": "Character",
+			"name": "Jack the Ripper",
+			"color": "Red",
+			"mana": "2",
+			"health": "30",
+			"effects": "AM-D1/////"
+		},
+		{
+			"type": "Character",
+			"name": "Jonathan Joestar",
+			"color": "Yellow",
+			"mana": "2",
+			"health": "28",
+			"effects": "FM-*D^1/////"
+		},
+		{
+			"type": "Spell",
+			"name": "life magnetism overdrive",
+			"color": "Yellow",
+			"mana": "4",
+			"effects": "FH-P3_/////"
+		},
+		{
+			"type": "Item",
+			"name": "Luck & Pluck",
+			"color": "Yellow",
+			"mana": "5",
+			"health": "5",
+			"attack": "3",
+			"effects": "/AM-W/E?-*B^4///"
+		},
+		{
+			"type": "Item",
+			"name": "Montrous Knife",
+			"color": "Red",
+			"mana": "3",
+			"health": "0",
+			"attack": "4",
+			"effects": "FM-*D/////"
+		},
+		{
+			"type": "Spell",
+			"name": "Overdrive Barrage",
+			"color": "Yellow",
+			"mana": "2",
+			"effects": "FM-*F/////"
+		},
+		{
+			"type": "Spell",
+			"name": "Regeneration",
+			"color": "Red",
+			"mana": "2",
+			"effects": "FH-H_/////"
+		},
+		{
+			"type": "Minion",
+			"name": "Robert E.O. Speedwagon",
+			"color": "Yellow",
+			"mana": "4",
+			"health": "5",
+			"attack": "1",
+			"race": "Human",
+			"effects": "/E?-D3/F?1-M~FD>FH///"
+		},
+		{
+			"type": "Spell",
+			"name": "Scarlet Overdrive",
+			"color": "Yellow",
+			"mana": "4",
+			"effects": "E?-*B@/////"
+		},
+		{
+			"type": "Spell",
+			"name": "Sendo Wave Kick",
+			"color": "Yellow",
+			"mana": "3",
+			"effects": "E?-D4/////"
+		},
+		{
+			"type": "Spell",
+			"name": "Space Ripper Stingy Eye",
+			"color": "Red",
+			"mana": "6",
+			"effects": "EM2-D5/////"
+		},
+		{
+			"type": "Item",
+			"name": "Stone Mask",
+			"color": "Red",
+			"mana": "7",
+			"health": "4",
+			"attack": "8",
+			"effects": "/EM_-K FH-*L`*U////"
+		},
+		{
+			"type": "Minion",
+			"name": "Strait's Disciple",
+			"color": "Yellow",
+			"mana": "3",
+			"health": "4",
+			"attack": "2",
+			"race": "Hamon user",
+			"effects": "//EM-*B^2///"
+		},
+		{
+			"type": "Minion",
+			"name": "Straits",
+			"color": "Yellow",
+			"mana": "10",
+			"health": "6",
+			"attack": "6",
+			"race": "Hamon user",
+			"effects": "/'Strait's_Disciple'-S//'Dire'-M~FD>FH//"
+		},
+		{
+			"type": "Spell",
+			"name": "sunlight yellow overdrive",
+			"color": "Red",
+			"mana": "6",
+			"effects": "FH-A_^1/////"
+		},
+		{
+			"type": "Character",
+			"name": "Tarkus",
+			"color": "Red",
+			"mana": "5",
+			"health": "30",
+			"effects": "EM-K`H1/////"
+		},
+		{
+			"type": "Item",
+			"name": "Tarkus' Chains",
+			"color": "Red",
+			"mana": "3",
+			"health": "3",
+			"attack": "2",
+			"effects": "/EH-*I^1`D3 FH-D3////"
+		},
+		{
+			"type": "Minion",
+			"name": "Tonpetty",
+			"color": "Black",
+			"mana": "5",
+			"health": "4",
+			"attack": "6",
+			"race": "Hamon user",
+			"effects": "/F?2-M~FD>FH F?1-M~FH>FD////"
+		},
+		{
+			"type": "Spell",
+			"name": "Tuquoise Blue Overdrive",
+			"color": "Yellow",
+			"mana": "7",
+			"effects": "EMA-M~EF>EH/////"
+		},
+		{
+			"type": "Minion",
+			"name": "Wang Chan",
+			"color": "Red",
+			"mana": "5",
+			"health": "6",
+			"attack": "3",
+			"race": "undead",
+			"effects": "/EM-D3`*P^2`*S^1////"
+		},
+		{
+			"type": "Character",
+			"name": "William A. Zeppeli",
+			"color": "Yellow",
+			"mana": "3",
+			"health": "28",
+			"effects": "?M-M~EF>EH/////"
+		},
+		{
+			"type": "Item",
+			"name": "Wine",
+			"color": "Yellow",
+			"mana": "2",
+			"health": "2",
+			"attack": "1",
+			"effects": "/////"
+		},
+		{
+			"type": "Minion",
+			"name": "Zombie Knight",
+			"color": "Red",
+			"mana": "3",
+			"health": "5",
+			"attack": "2",
+			"race": "undead",
+			"effects": "/////S-H5"
+		},
+		{
+			"type": "Minion",
+			"name": "Zombie",
+			"color": "Red",
+			"mana": "2",
+			"health": "3",
+			"attack": "1",
+			"race": "undead",
+			"effects": "S-*L/////"
+		},
+		{
+			"type": "Spell",
+			"name": "Zoom Punch",
+			"color": "Yellow",
+			"mana": "5",
+			"effects": "EH-D5 EMA-D2/////"
+		}		
 	]
 }

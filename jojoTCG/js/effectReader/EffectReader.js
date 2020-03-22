@@ -130,6 +130,15 @@ function modEffect(target, effect, duration, card, type) {
                 // *******Implement******* Bad Effects
             }
             break;
+        case 'M': //Move
+            var from = effect.split('~')[1].split('>')[0];
+            var from = effect.split('~')[1].split('>')[1];
+
+            newFunction = function () {
+                var thisTarget = card; // *******Implement*******
+                // implement decks hand graveyard...
+            }
+            break;
 
 
         case '*':
@@ -148,7 +157,7 @@ function modEffect(target, effect, duration, card, type) {
     var oldFunction;
 
     switch (type) {
-        case 0:
+        case 0: // On Default/ OnActivate
             if (target == 'S') { 
                 var onDefault = function () {
                     newFunction.apply(newFunction);
