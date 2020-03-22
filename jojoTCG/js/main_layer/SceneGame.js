@@ -25,6 +25,7 @@ export default class SceneGame extends Phaser.Scene {
             this.preloadSprite(this, deckManager.deck[i]);
         }
         this.preloadSprite(this, deckManager.hero);
+        this.load.image("button s", "assets/rigth_button.png");
         //var cards = createCardArray(cardsCode);
     }
     
@@ -42,6 +43,7 @@ export default class SceneGame extends Phaser.Scene {
         let { width, height } = this.sys.game.canvas;
         let scale = height / (4.25 * 444);
         let scene = this;
+        var selectedCard;
 
         var deck = [];
 
@@ -62,9 +64,28 @@ export default class SceneGame extends Phaser.Scene {
         }
 
         this.player1.hero.setSprite(this, scale * 1.2, (width) / 12, 5.15 * height / 6);
+        //botón de interacción
+        var summonButton = this.add.image(width/2, height/2, "button s");
+        summonButton.setVisible(false);
+        summonButton.setScale(scale);
+        summonButton.setInteractive();
 
         for(var i = 0; i <this.player1.hand.length; i++){
-            this.input.setDraggable(this.player1.hand[i].sprite);
+            this.player1.hand[i].sprite.on("pointerdown", function(pointer) {
+                //summonButton.setPosition(this.x, this.y - (272 * height * scale));
+                summonButton.setVisible(true);
+                selectedCard = this;
+                this.setTint(0xcc08aa);
+            });
+
+            this.player1.hand[i].sprite.on("pointerout", function(pointer) {
+                //summonButton.setVisible(false);
+                this.clearTint();
+            });
+
+            this.player1.hand[i].sprite.on("pointerup", function(pointer) {
+
+            });
         }
 
         var readCard = this.add.image(scale * 0.9 * 311, height / 2, "Dio"); //sirve para hacer zoom y leer cartas
@@ -74,8 +95,10 @@ export default class SceneGame extends Phaser.Scene {
         //input output
         this.input.on("gameobjectover", function(pointer, gameObject) {
             gameObject.setTint(0xa0b0a0);
-            readCard.setTexture(gameObject.texture.key);
-            readCard.setVisible(true);
+            if(gameObject.texture.key != "button s"){
+                readCard.setTexture(gameObject.texture.key);
+                readCard.setVisible(true);
+              }
             
           });
       
@@ -84,36 +107,14 @@ export default class SceneGame extends Phaser.Scene {
             readCard.setVisible(false);
           });
 
+          let targetPlayer = this.player1;
+          summonButton.on('pointerdown', function (pointer) {
+            targetPlayer.summon(selectedCard, width, height, scale);
+          });
 
-          this.input.on('dragstart', function (pointer, gameObject) {
-
-            gameObject.setTint(0xcc08aa);
-    
-        });
-    
-        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-            gameObject.setTint(0xcc08aa);
-            gameObject.x = dragX;
-            gameObject.y = dragY;
-    
-        });
-        let targetPlayer = this.player1;
-        this.input.on('dragend', function (pointer, gameObject) {
-    
-            gameObject.clearTint();
-            console.log("y de objeto: ", gameObject.y, " contraint inf: ", ((scale * 0.7 * 444) + (scale * 222)), " constraint sup: ", (height - (scale * 0.7 * 444) - (scale * 222)), " h = ", height)
-            if(gameObject.y > ((scale * 0.7 * 444) + (scale * 222)) && gameObject.y < (height - (scale * 0.7 * 444) - (scale * 222))){
-                targetPlayer.summon(gameObject, width, height, scale);
-            }else{
-                for(var i = 0; i < targetPlayer.hand.length; i++){
-                    if(targetPlayer.hand[i].name == gameObject.texture.key){
-                        gameObject.setPosition(((i+2)*width) / 10, 5.3 * height / 6);
-                        break;
-                    }
-                }
-            }
-    
-        });
+          summonButton.on('pointerup', function (pointer) {
+            this.setVisible(false);
+          });
     }
     
     update() {
