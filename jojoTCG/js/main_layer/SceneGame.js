@@ -1,18 +1,30 @@
 import "./phaser.js";
 import createCardArray from "../effectReader/EffectReader.js";
+import Player from "../cards/Player.js";
+import Hero from "../cards/Hero.js";
 //import Character from "../character/Character.js";
 
 export default class SceneGame extends Phaser.Scene {
 
     constructor () {
         super({key: 'GameScene'});
+        this.player1;
         
     }
 
+    preloadSprite(scene, name){
+        scene.load.image(name, "assets/" + name + ".jpg");
+    }
+
     preload() {
+        let deckManager = this.scene.get("DeckScene");
         //this.load.spritesheet('minotaur_warrior', 'assets/warrior_minotaur_test.png', {frameWidth: 60, frameHeight: 76});
         //this.load.image('tiles', 'assets/maptiles.png');
         var cardsCode = this.load.json('cardsjson', "assets/cards.json");
+        for (let i = 0; i < deckManager.deck.length; i++) {
+            this.preloadSprite(this, deckManager.deck[i]);
+        }
+        this.preloadSprite(this, deckManager.hero);
         //var cards = createCardArray(cardsCode);
     }
     
@@ -44,6 +56,8 @@ export default class SceneGame extends Phaser.Scene {
         // });
 
         // console.log(cards);
+
+        this.player1 = new Player("fornica", new Hero(deckManager.hero, 'b', 30), deck, 1);
 
         var readCard = this.add.image(width / 2, height / 3, "Dio"); //sirve para hacer zoom y leer cartas
         readCard.setVisible(false);

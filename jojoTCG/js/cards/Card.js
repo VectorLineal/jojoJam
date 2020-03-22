@@ -7,11 +7,6 @@ export default class Card{
         this.mana = mana;
         this.sprite;
     }
-
-    preloadSprite(scene){
-        scene.load.image(this.name, "assets/" + this.name + ".jpg");
-    }
-
     setSprite(scene, scale, positionX, positionY){
         this.sprite = scene.add.image(positionX, positionY);
         this.sprite.setScale(scale);
