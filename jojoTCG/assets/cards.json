@@ -36,7 +36,7 @@
 			"health": "6",
 			"attack": "6",
 			"race": "Undead",
-			"effects": "/EM-D3 FH-H3////"
+			"effects": "/EM-D3~FH-H3////"
 		},
 		{
 			"type": "Minion",
@@ -46,14 +46,14 @@
 			"health": "2",
 			"attack": "1",
 			"race": "Human",
-			"effects": "/&-MS////"
+			"effects": "/F&-MS////"
 		},
 		{
 			"type": "Spell",
 			"name": "Deep Pass Overdrive",
 			"color": "Yellow",
 			"mana": "4",
-			"effects": "/FH-D5 FM-C4.4`*U////"
+			"effects": "/FH-D5~FM-C4.4`*U////"
 		},
 		{
 			"type": "Character",
@@ -71,7 +71,7 @@
 			"health": "7",
 			"attack": "10",
 			"race": "Hamon user",
-			"effects": "/EM-B///'Straits'-MT/"
+			"effects": "/EM-B///F'Straits'-MT/"
 		},
 		{
 			"type": "Minion",
@@ -125,7 +125,7 @@
 			"health": "1",
 			"attack": "1",
 			"race": "Human",
-			"effects": "/F-MT2 E-MT2////"
+			"effects": "/F-MT2~E-MT2////"
 		},
 		{
 			"type": "Spell",
@@ -234,7 +234,7 @@
 			"mana": "7",
 			"health": "4",
 			"attack": "8",
-			"effects": "/EM_-K FH-*L`*U////"
+			"effects": "/EM_-K~FH-*L`*U////"
 		},
 		{
 			"type": "Minion",
@@ -254,7 +254,7 @@
 			"health": "6",
 			"attack": "6",
 			"race": "Hamon user",
-			"effects": "/'Strait's_Disciple'-S//'Dire'-MT//"
+			"effects": "/'Strait's Disciple'-S2//F'Dire'-MT//"
 		},
 		{
 			"type": "Spell",
@@ -278,7 +278,7 @@
 			"mana": "3",
 			"health": "3",
 			"attack": "2",
-			"effects": "/EH-*I^1`D3 FH-D3////"
+			"effects": "/EH-*I^1`D3~FH-D3////"
 		},
 		{
 			"type": "Minion",
@@ -288,7 +288,7 @@
 			"health": "4",
 			"attack": "6",
 			"race": "Hamon user",
-			"effects": "/F-MT2 F-MD////"
+			"effects": "/F-MT2~F-MD////"
 		},
 		{
 			"type": "Spell",
@@ -349,7 +349,7 @@
 			"name": "Zoom Punch",
 			"color": "Yellow",
 			"mana": "5",
-			"effects": "/EH-D5 EMA-D2////"
+			"effects": "/EH-D5~EMA-D2////"
 		}		
 	]
 }
