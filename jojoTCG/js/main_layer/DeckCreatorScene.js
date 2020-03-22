@@ -14,6 +14,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
       //buttons
       this.load.image("button l", "assets/left_button.png");
       this.load.image("button r", "assets/rigth_button.png");
+      this.load.image("button start", "assets/game start.png");
     //heroes
     this.load.image("Dio Brando", "assets/Dio Brando.jpg");
     this.load.image("Jonathan Joestar", "assets/Jonathan Joestar.jpg");
@@ -573,6 +574,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
               "x1",
               { font: "48px Arial", fill: "#0606b6" }
             );
+            textDisplay.setScale(scale);
             textDisplay.name = this.texture.key;
             displayAmounts.add(textDisplay);
             console.log("size: ", displayDeck.children.size);
@@ -589,22 +591,26 @@ export default class DeckCreatorScene extends Phaser.Scene {
     //elementos dinámicos
     var readCard = this.add.image(width / 2, height / 3, "Dio"); //sirve para hacer zoom y leer cartas
     readCard.setVisible(false);
-    readCard.setScale(scale* 1.5);
+    readCard.setScale(scale * 1.8);
 
+    //input output
     var buttonCardsL = this.add.image(width / 20, height / 3, "button l");
     var buttonCardsR = this.add.image(19 * width / 20, height / 3, "button r");
     var buttonDeckL = this.add.image(width / 20, 11 * height / 12, "button l");
     var buttonDeckR = this.add.image(19 *width / 20, 11 * height / 12, "button r");
+    var buttonStart = this.add.image(19 *width / 20, 2 * height / 3, "button start")
 
     buttonCardsL.setInteractive();
     buttonCardsR.setInteractive();
     buttonDeckL.setInteractive();
     buttonDeckR.setInteractive();
+    buttonStart.setInteractive();
 
     buttonCardsL.setScale(scale * 1.5);
     buttonCardsR.setScale(scale * 1.5);
     buttonDeckL.setScale(scale * 1.5);
     buttonDeckR.setScale(scale * 1.5);
+    buttonStart.setScale(scale / 2);
 
     buttonCardsL.on("pointerup", function(pointer) {
         if(cardType > 0 && cardStage >0){
@@ -648,11 +654,15 @@ export default class DeckCreatorScene extends Phaser.Scene {
         }
     });
 
-    //input output
+    buttonStart.on("pointerdown", function(pointer) {
+        if(deckKeys.length == 30 && displayHero.visible){
+            scene.scene.start('GameScene');
+        }
+    });
 
     this.input.on("gameobjectover", function(pointer, gameObject) {
       gameObject.setTint(0xa0b0a0);
-      if(gameObject.texture.key != "button l" && gameObject.texture.key != "button r"){
+      if(gameObject.texture.key != "button l" && gameObject.texture.key != "button r" && gameObject.texture.key != "button start"){
         readCard.setTexture(gameObject.texture.key);
         readCard.setVisible(true);
       }
