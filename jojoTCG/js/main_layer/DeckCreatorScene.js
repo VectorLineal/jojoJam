@@ -8,6 +8,7 @@ export default class DeckCreatorScene extends Phaser.Scene {
 
     //datos para pasar a gameScene
     this.deck;
+    this.hero;
   }
 
   preload() {
@@ -651,6 +652,8 @@ export default class DeckCreatorScene extends Phaser.Scene {
 
     buttonStart.on("pointerdown", function(pointer) {
         if(deckKeys.length == 30 && displayHero.visible){
+            scene.deck = deckKeys;
+            scene.hero = displayHero.texture.key;
             scene.scene.start('GameScene');
         }
     });
