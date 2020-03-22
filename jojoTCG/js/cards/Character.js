@@ -7,6 +7,12 @@ export default class Character extends Card{
         this.curHealth = this.maxHealth;
         this.attack = attack;
         this.effects = [];
+        this.hasAttacked = 0;
+        this.attacksPerTurn = 1;
+    }
+
+    refresh(){
+        this.hasAttacked = 0;
     }
 
     die(){

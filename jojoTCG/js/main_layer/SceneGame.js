@@ -62,7 +62,7 @@ export default class SceneGame extends Phaser.Scene {
 
         this.player1.hero.setSprite(this, scale * 1.2, (width) / 12, 5.15 * height / 6);
 
-        var readCard = this.add.image(width / 2, height / 3, "Dio"); //sirve para hacer zoom y leer cartas
+        var readCard = this.add.image(scale * 0.9 * 311, height / 2, "Dio"); //sirve para hacer zoom y leer cartas
         readCard.setVisible(false);
         readCard.setScale(scale * 1.8);
 
