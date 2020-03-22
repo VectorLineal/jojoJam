@@ -102,7 +102,7 @@ export default class SceneGame extends Phaser.Scene {
     
             gameObject.clearTint();
             if(gameObject.y > (scale * 0.7 * 444) + (scale * 222) && gameObject.y < height - (scale * 0.7 * 444) + (scale * 222)){
-                targetPlayer.summon(scene, gameObject.texture.key, width, height, scale);
+                targetPlayer.summon(gameObject.texture.key, width, height, scale);
             }else{
                 for(var i = 0; i < targetPlayer.hand.length; i++){
                     if(targetPlayer.hand[i].name == gameObject.texture.key){
