@@ -16,6 +16,17 @@ export default class Player{
         this.oldMana = this.mana;
     }
 
+    draw() {
+        this.hand.push(this.deck.pop());
+    }
+    summon() {
+        //***********implemet/
+        this.field.push(this.hand.pop());
+    }
+    summon(name) {
+        //this.field.push(toCard(name));
+    }
+
     onTurnBegin(){
         if(!this.deck.isEmpty()){
             this.hand.push(this.deck.draw());

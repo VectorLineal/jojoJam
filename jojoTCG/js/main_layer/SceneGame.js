@@ -49,13 +49,7 @@ export default class SceneGame extends Phaser.Scene {
         }
         console.log(deck);
         
-        cards[0].onSummon();
-        //console.log(cards[0].onSummon);
-        // cards.forEach(element => {
-        //     element.onSummon();
-        // });
-
-        // console.log(cards);
+        // cards[0].onSummon();
 
         //this.add.rectangle( width / 2, (2 * height) / 3, width, height / 50, 0x0909a9 );
 

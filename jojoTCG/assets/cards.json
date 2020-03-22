@@ -46,14 +46,14 @@
 			"health": "2",
 			"attack": "1",
 			"race": "Human",
-			"effects": "/&-M~EH>FH////"
+			"effects": "/&-MS////"
 		},
 		{
 			"type": "Spell",
 			"name": "Deep Pass Overdrive",
 			"color": "Yellow",
 			"mana": "4",
-			"effects": "FH-D5 FM-C4.4`*U/////"
+			"effects": "/FH-D5 FM-C4.4`*U////"
 		},
 		{
 			"type": "Character",
@@ -71,7 +71,7 @@
 			"health": "7",
 			"attack": "10",
 			"race": "Hamon user",
-			"effects": "/EM-B///'Straits'-M~FD>FH/"
+			"effects": "/EM-B///'Straits'-MT/"
 		},
 		{
 			"type": "Minion",
@@ -108,14 +108,14 @@
 			"name": "Freeze",
 			"color": "Red",
 			"mana": "3",
-			"effects": "EM-*S^1*W/////"
+			"effects": "/EM-*S^1*W////"
 		},
 		{
 			"type": "Spell",
 			"name": "Fusion",
 			"color": "Red",
 			"mana": "2",
-			"effects": "FM-K/FM-!1`C2.2////"
+			"effects": "/FM-K/FM-!1`C2.2///"
 		},
 		{
 			"type": "Minion",
@@ -125,21 +125,21 @@
 			"health": "1",
 			"attack": "1",
 			"race": "Human",
-			"effects": "/F?2-M~FD>FH E?2->M~ED>EH////"
+			"effects": "/F-MT2 E-MT2////"
 		},
 		{
 			"type": "Spell",
 			"name": "Hamon Cutter",
 			"color": "Yellow",
 			"mana": "6",
-			"effects": "E&-D10/////"
+			"effects": "/E&-D10////"
 		},
 		{
 			"type": "Spell",
 			"name": "Hypnosis",
 			"color": "Red",
 			"mana": "4",
-			"effects": "EM-M~EF>FF/////"
+			"effects": "/EM-MC^1////"
 		},
 		{
 			"type": "Character",
@@ -162,7 +162,7 @@
 			"name": "life magnetism overdrive",
 			"color": "Yellow",
 			"mana": "4",
-			"effects": "FH-P3_/////"
+			"effects": "/FH-P3_////"
 		},
 		{
 			"type": "Item",
@@ -187,14 +187,14 @@
 			"name": "Overdrive Barrage",
 			"color": "Yellow",
 			"mana": "2",
-			"effects": "FM-*F/////"
+			"effects": "/FM-*F////"
 		},
 		{
 			"type": "Spell",
 			"name": "Regeneration",
 			"color": "Red",
 			"mana": "2",
-			"effects": "FH-H_/////"
+			"effects": "/FH-H_////"
 		},
 		{
 			"type": "Minion",
@@ -204,28 +204,28 @@
 			"health": "5",
 			"attack": "1",
 			"race": "Human",
-			"effects": "/E?-D3/F?1-M~FD>FH///"
+			"effects": "/E?-D3/F-MT///"
 		},
 		{
 			"type": "Spell",
 			"name": "Scarlet Overdrive",
 			"color": "Yellow",
 			"mana": "4",
-			"effects": "E?-*B@/////"
+			"effects": "/E?-*B@////"
 		},
 		{
 			"type": "Spell",
 			"name": "Sendo Wave Kick",
 			"color": "Yellow",
 			"mana": "3",
-			"effects": "E?-D4/////"
+			"effects": "/E?-D4////"
 		},
 		{
 			"type": "Spell",
 			"name": "Space Ripper Stingy Eye",
 			"color": "Red",
 			"mana": "6",
-			"effects": "EM2-D5/////"
+			"effects": "/EM2-D5////"
 		},
 		{
 			"type": "Item",
@@ -254,14 +254,14 @@
 			"health": "6",
 			"attack": "6",
 			"race": "Hamon user",
-			"effects": "/'Strait's_Disciple'-S//'Dire'-M~FD>FH//"
+			"effects": "/'Strait's_Disciple'-S//'Dire'-MT//"
 		},
 		{
 			"type": "Spell",
 			"name": "sunlight yellow overdrive",
 			"color": "Red",
 			"mana": "6",
-			"effects": "FH-A_^1/////"
+			"effects": "/FH-A_^1////"
 		},
 		{
 			"type": "Character",
@@ -288,14 +288,14 @@
 			"health": "4",
 			"attack": "6",
 			"race": "Hamon user",
-			"effects": "/F?2-M~FD>FH F?1-M~FH>FD////"
+			"effects": "/F-MT2 F-MD////"
 		},
 		{
 			"type": "Spell",
 			"name": "Tuquoise Blue Overdrive",
 			"color": "Yellow",
 			"mana": "7",
-			"effects": "EMA-M~EF>EH/////"
+			"effects": "/EMA-MR////"
 		},
 		{
 			"type": "Minion",
@@ -313,7 +313,7 @@
 			"color": "Yellow",
 			"mana": "3",
 			"health": "28",
-			"effects": "?M-M~EF>EH/////"
+			"effects": "?M-MR/////"
 		},
 		{
 			"type": "Item",
@@ -349,7 +349,7 @@
 			"name": "Zoom Punch",
 			"color": "Yellow",
 			"mana": "5",
-			"effects": "EH-D5 EMA-D2/////"
+			"effects": "/EH-D5 EMA-D2////"
 		}		
 	]
 }
