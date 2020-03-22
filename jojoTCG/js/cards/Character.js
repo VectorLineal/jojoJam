@@ -11,7 +11,7 @@ export default class Character extends Card{
         this.attacksPerTurn = 1;
     }
 
-    refresh(){
+    refreshAttack(){
         this.hasAttacked = 0;
     }
 

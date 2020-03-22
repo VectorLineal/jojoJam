@@ -40,7 +40,8 @@ export default class SceneGame extends Phaser.Scene {
         //referencia a la escena de creador de deck
         let deckManager = this.scene.get("DeckScene");
         let { width, height } = this.sys.game.canvas;
-        let scale = width / (8.25 * 311);
+        let scale = height / (4.25 * 444);
+        let scene = this;
 
         var deck = [];
 
@@ -62,6 +63,10 @@ export default class SceneGame extends Phaser.Scene {
 
         this.player1.hero.setSprite(this, scale * 1.2, (width) / 12, 5.15 * height / 6);
 
+        for(var i = 0; i <this.player1.hand.length; i++){
+            this.input.setDraggable(this.player1.hand[i].sprite);
+        }
+
         var readCard = this.add.image(scale * 0.9 * 311, height / 2, "Dio"); //sirve para hacer zoom y leer cartas
         readCard.setVisible(false);
         readCard.setScale(scale * 1.8);
@@ -78,6 +83,36 @@ export default class SceneGame extends Phaser.Scene {
             gameObject.clearTint();
             readCard.setVisible(false);
           });
+
+
+          this.input.on('dragstart', function (pointer, gameObject) {
+
+            gameObject.setTint(0xcc08aa);
+    
+        });
+    
+        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+            gameObject.setTint(0xcc08aa);
+            gameObject.x = dragX;
+            gameObject.y = dragY;
+    
+        });
+        let targetPlayer = this.player1;
+        this.input.on('dragend', function (pointer, gameObject) {
+    
+            gameObject.clearTint();
+            if(gameObject.y > (scale * 0.7 * 444) + (scale * 222) && gameObject.y < height - (scale * 0.7 * 444) + (scale * 222)){
+                targetPlayer.summon(scene, gameObject.texture.key, width, height, scale);
+            }else{
+                for(var i = 0; i < targetPlayer.hand.length; i++){
+                    if(targetPlayer.hand[i].name == gameObject.texture.key){
+                        gameObject.setPosition(((i+2)*width) / 10, 5.3 * height / 6);
+                        break;
+                    }
+                }
+            }
+    
+        });
     }
     
     update() {

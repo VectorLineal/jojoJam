@@ -25,9 +25,26 @@ export default class Player{
     //     // selection = selectCard();
     //     this.field.push(this.hand.pop());
     // }
-    summon(name) {
-        this.field.push(SceneGame.toCard(name));
-        console.log(this.field);
+    summon(scene, name, width, height, scale) {
+        var card;
+        for(var i = 0; i < this.hand.length; i++){
+            if(this.hand[i].name == name){
+                card = this.hand[i].sprite.setPosition(((this.field.length + 2) * width) / 10, (5.3 * height / 6) - (scale * 1.1 * 444));
+                this.hand.splice(i, 1);
+                break;
+            }
+        }
+
+        this.field.push(card);
+
+        for(var i = 0; i < this.hand.length; i++){
+            this.hand[i].sprite.setX(((i+2)*width) / 10);
+        }
+
+    }
+
+    fixPositions(){
+
     }
 
     onTurnBegin(){
